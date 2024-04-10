@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            padding: 20px;
+        }
+
+        .user {
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding: 10px;
+            max-width: 200px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div userId="1" class="user">Nicolas Chourot</div>
+        <div userId="2" class="user">Saliha Yacoub</div>
+        <div userId="3" class="user">Saliha Yacoub</div>
+        <div userId="4" class="user">Stéphane Chassé</div>
+        <div userId="5" class="user">Patrice Roy</div>
+        <div userId="6" class="user">Etienne Foret</div>
+    </div>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        $(function () {
+            $(".user2").on("click", function () {
+                let userId = $(this).attr("userId");
+                let userName = $(this).html();
+                alert(`Clicked user Id is ${userId} and name is ${userName}`);
+            })
+            $(".user").on("click", function () {
+                let userId = $(this).attr("userId");
+                let actionUrl = `/Accounts/Profil?userId=${userId}`;
+                window.location = actionUrl;
+            })
+        })
+    </script>
+</body>
+
+</html>
